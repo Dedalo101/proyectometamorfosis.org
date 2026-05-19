@@ -22,12 +22,12 @@ uniform vec2 u_mouse;
 uniform float u_state;
 
 vec3 palette(float t) {
-  vec3 a = vec3(1.0, 0.0, 0.66);
-  vec3 b = vec3(0.07, 0.73, 0.78);
-  vec3 c = vec3(0.83, 0.69, 0.14);
-  vec3 d = vec3(0.31, 0.13, 0.48);
+  vec3 a = vec3(0.8, 0.2, 0.4);
+  vec3 b = vec3(0.15, 0.65, 0.75);
+  vec3 c = vec3(0.9, 0.7, 0.2);
+  vec3 d = vec3(0.4, 0.15, 0.6);
   float w = smoothstep(0.0, 1.0, t);
-  return mix(mix(a, b, fract(t * 2.0)), mix(c, d, fract(t * 1.0)), w) * (0.8 + 0.2 * sin(t * 12.0));
+  return mix(mix(a, b, fract(t * 1.8)), mix(c, d, fract(t * 0.95)), w) * (0.85 + 0.25 * sin(t * 8.0));
 }
 
 float stripes(vec2 p, float frequency) {
@@ -42,22 +42,23 @@ float overlapCircle(vec2 p, float radius, float width) {
 
 float mandalaShape(vec2 uv, float a, float r, float time, float state) {
   float shape = 0.0;
+  float fabric = sin(uv.x * 12.0 + time * 0.8) * sin(uv.y * 10.0 + time * 1.2) * 0.3;
   if (state < 0.5) {
-    float rings = sin(r * 20.0 - time * 4.0 + sin(a * 8.0 + time * 1.8) * 0.4);
-    float petals = abs(sin(a * 6.0 + time * 1.5 + r * 3.0));
-    shape = smoothstep(0.18, 0.15, abs(petals - 0.35) * 0.9 + rings * 0.25);
+    float waves = sin(r * 18.0 - time * 2.5 + sin(a * 6.0 + time * 1.2) * 0.5) * 0.5;
+    float flow = abs(sin(a * 5.0 + time * 1.8 + r * 2.5));
+    shape = smoothstep(0.20, 0.12, abs(flow - 0.4) * 0.85 + waves * 0.3);
   } else if (state < 1.5) {
-    float spiral = sin(r * 15.0 - time * 3.6 + a * 7.0);
-    float petals = abs(cos(a * 8.0 + r * 4.0 - time * 2.2));
-    shape = smoothstep(0.24, 0.20, petals * 0.8 + spiral * 0.4 + overlapCircle(uv, 0.18, 0.02));
+    float silk = sin(r * 16.0 - time * 3.2) * cos(a * 7.0 + time * 1.5);
+    float drape = abs(cos(a * 9.0 + r * 3.5 - time * 2.0));
+    shape = smoothstep(0.22, 0.14, drape * 0.75 + silk * 0.5 + fabric * 0.2);
   } else if (state < 2.5) {
-    float star = abs(cos(a * 10.0) * cos(r * 7.0 + time * 1.1));
-    float grid = abs(sin((uv.x + uv.y) * 10.0 + time * 1.8)) * 0.35;
-    shape = smoothstep(0.22, 0.18, star * 0.85 + grid);
+    float weave = sin((uv.x + uv.y) * 14.0 - time * 2.2 + a * 4.0) * 0.4;
+    float shimmer = abs(sin(a * 11.0 + r * 6.0 + time * 1.6));
+    shape = smoothstep(0.24, 0.16, shimmer * 0.8 + weave + fabric * 0.25);
   } else {
-    float petals = abs(sin(a * 12.0 + r * 5.0 - time * 2.5));
-    float halo = smoothstep(0.40, 0.36, abs(sin(a * 16.0 + time * 2.0)) + r * 0.78);
-    shape = smoothstep(0.20, 0.16, petals * 0.7 + halo * 0.5 + overlapCircle(uv, 0.12, 0.01));
+    float petals = abs(sin(a * 13.0 + r * 4.5 - time * 2.2));
+    float ripple = sin(r * 12.0 - time * 2.8 + a * 5.0) * 0.35;
+    shape = smoothstep(0.22, 0.15, petals * 0.7 + ripple + fabric * 0.15);
   }
   return clamp(shape, 0.0, 1.0);
 }
