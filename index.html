@@ -1,16 +1,28 @@
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proyecto Metamorfosis • Conscious Silk Bespoke Garments</title>
+  <meta name="description" content="Seda india consciente. Prendas únicas hechas a medida. Elegancia que honra el alma y la tierra.">
+  
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:title" content="Proyecto Metamorfosis • Conscious Silk">
+  <meta property="og:description" content="Seda india consciente. Prendas únicas hechas a medida. Elegancia que honra el alma y la tierra.">
+  <meta property="og:image" content="Modelo-Sari-All.webp">
+  <meta property="og:type" content="website">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦋</text></svg>">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     body { font-family: 'Georgia', serif; }
-    .hero-bg { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://i.imgur.com/YOUR-HERO-IMG-8581.jpg') center/cover no-repeat; }
     .product-card { transition: all 0.3s ease; }
     .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+    .mandala-container { position: relative; width: 100%; height: 100%; }
+    canvas#mandala { display: block; width: 100%; height: 100%; }
   </style>
 </head>
 <body class="bg-[#f8f1e3] text-[#3f2a1e]">
@@ -22,7 +34,7 @@
         <h1 class="text-3xl font-light tracking-widest">METAMORFOSIS</h1>
       </div>
       <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest">
-        <a href="metamorfosis.html" class="hover:text-[#c19a6b]">Colección</a>
+        <a href="#shop" class="hover:text-[#c19a6b]">Colección</a>
         <a href="#story" class="hover:text-[#c19a6b]">Nuestra Historia</a>
         <a href="#valores" class="hover:text-[#c19a6b]">Valores</a>
         <a href="#bespoke" class="hover:text-[#c19a6b]">Bespoke</a>
@@ -31,38 +43,49 @@
     </div>
   </nav>
 
-  <!-- HERO - Boutique style -->
-  <header class="hero-bg h-screen flex items-center text-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <p class="uppercase tracking-[3px] text-sm mb-4">Conscious • Indian Silk • Bespoke</p>
+  <!-- HERO with WebGL Mandala -->
+  <header class="relative h-screen flex items-center justify-center bg-[#1a140f] overflow-hidden">
+    <div class="mandala-container absolute inset-0 z-0">
+      <canvas id="mandala" width="800" height="800"></canvas>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
+      <p class="uppercase tracking-[3px] text-sm mb-4 opacity-80">Conscious • Indian Silk • Bespoke</p>
       <h1 class="text-6xl md:text-7xl font-light leading-none mb-6">Transforma tu esencia</h1>
-      <p class="text-xl md:text-2xl max-w-lg mx-auto mb-10">Seda india consciente. Prendas únicas hechas a medida. Elegancia que honra el alma y la tierra.</p>
-      <a href="metamorfosis.html" class="inline-block bg-white text-[#3f2a1e] px-10 py-4 rounded-full text-lg font-medium hover:bg-[#e8d5b7]">Explorar la colección</a>
+      <p class="text-xl md:text-2xl max-w-lg mx-auto mb-10 opacity-90">Seda india consciente. Prendas únicas hechas a medida. Elegancia que honra el alma y la tierra.</p>
+      <a href="#shop" class="inline-block bg-white text-[#3f2a1e] px-10 py-4 rounded-full text-lg font-medium hover:bg-[#e8d5b7]">Explorar la colección</a>
     </div>
   </header>
 
-  <!-- YOUR PHOTOS -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-    <img src="https://i.imgur.com/YOUR-IMG-8581.jpg" alt="Hombre con camisa de seda paisley verde en jardín" class="w-full h-full object-cover">
-    <img src="https://i.imgur.com/YOUR-IMG-8582.jpg" alt="Sonriendo con camisa de seda paisley" class="w-full h-full object-cover">
-  </div>
+  <!-- PRODUCT HIGHLIGHT with real photo -->
+  <section class="max-w-5xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <img src="Modelo-Sari-All.webp" alt="Modelo Sari All - Producto destacado de seda india" class="w-full rounded-3xl shadow-xl object-cover">
+      </div>
+      <div>
+        <span class="uppercase tracking-[2px] text-xs text-[#c19a6b]">Destacado</span>
+        <h2 class="text-4xl font-light mt-2 mb-6">Modelo Sari All</h2>
+        <p class="text-lg leading-relaxed mb-6">Nuestra pieza más versátil. Seda ligera con estampado artesanal, perfecta para ceremonias, retiros o el día a día. Hecha a medida con intención.</p>
+        <a href="#contact" class="inline-flex items-center gap-2 text-[#c19a6b] hover:text-[#a67c4f] font-medium">Solicitar esta pieza →</a>
+      </div>
+    </div>
+  </section>
 
   <!-- SHOP / FEATURED PRODUCTS -->
-  <section id="shop" class="max-w-7xl mx-auto px-6 py-20">
+  <section id="shop" class="max-w-7xl mx-auto px-6 py-16">
     <h2 class="text-4xl font-light text-center mb-12">Tesoros de Seda</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-      <!-- Replace these with your real products later -->
       <div class="product-card bg-white rounded-3xl overflow-hidden shadow-sm">
-        <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d74?w=800" alt="Camisa de seda paisley verde" class="w-full h-80 object-cover">
+        <img src="Modelo-Sari-All.webp" alt="Modelo Sari All - Camisa de seda" class="w-full h-80 object-cover">
         <div class="p-6">
-          <h3 class="font-medium">Signature Paisley Camp Shirt</h3>
+          <h3 class="font-medium">Signature Sari Shirt</h3>
           <p class="text-[#c19a6b] text-sm">Seda ligera • Hecha a mano • India</p>
           <p class="text-xs mt-4">Bespoke • Desde €145</p>
         </div>
       </div>
 
       <div class="product-card bg-white rounded-3xl overflow-hidden shadow-sm">
-        <img src="https://images.pexels.com/photos/1049317/pexels-photo-1049317.jpeg?w=800" alt="Kurta de seda floral" class="w-full h-80 object-cover">
+        <img src="Modelo-Sari-All.webp" alt="Kurta de seda" class="w-full h-80 object-cover">
         <div class="p-6">
           <h3 class="font-medium">Vibrant Festival Kurta</h3>
           <p class="text-[#c19a6b] text-sm">Seda block-print • Energética</p>
@@ -71,7 +94,7 @@
       </div>
 
       <div class="product-card bg-white rounded-3xl overflow-hidden shadow-sm">
-        <img src="https://images.unsplash.com/photo-1610030469983-8a4d8b6c7d2a?w=800" alt="Camisa boho seda" class="w-full h-80 object-cover">
+        <img src="Modelo-Sari-All.webp" alt="Camisa boho seda" class="w-full h-80 object-cover">
         <div class="p-6">
           <h3 class="font-medium">Boho Silk Button-Up</h3>
           <p class="text-[#c19a6b] text-sm">Flujo sagrado de paisleys</p>
@@ -80,7 +103,7 @@
       </div>
 
       <div class="product-card bg-white rounded-3xl overflow-hidden shadow-sm">
-        <img src="https://images.pexels.com/photos/8275685/pexels-photo-8275685.jpeg?w=800" alt="Conjunto kurta y chaleco" class="w-full h-80 object-cover">
+        <img src="Modelo-Sari-All.webp" alt="Conjunto kurta y chaleco" class="w-full h-80 object-cover">
         <div class="p-6">
           <h3 class="font-medium">Bespoke Kurta + Waistcoat</h3>
           <p class="text-[#c19a6b] text-sm">Para ceremonias y retiros</p>
@@ -130,7 +153,7 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT with real Formspree ID placeholder -->
   <section id="contact" class="max-w-2xl mx-auto px-6 py-20">
     <h2 class="text-3xl text-center mb-10">Hablemos de seda</h2>
     <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST" class="space-y-6">
@@ -138,16 +161,74 @@
       <textarea name="message" rows="5" placeholder="Cuéntanos tu visión..." class="w-full px-6 py-4 border border-[#c19a6b]/30 rounded-2xl focus:outline-none focus:border-[#c19a6b]"></textarea>
       <button type="submit" class="w-full bg-[#c19a6b] text-white py-5 rounded-3xl font-medium text-lg">Enviar mensaje</button>
     </form>
+    <p class="text-center text-xs text-[#c19a6b] mt-4">Regístrate gratis en formspree.io y reemplaza YOUR-FORM-ID</p>
   </section>
 
   <footer class="bg-[#3f2a1e] text-[#e8d5b7] py-12 text-center text-sm">
-    <p>© 2026 Proyecto Metamorfosis • Seda consciente • Hecho con amor y seda</p>
+    <p>© 2025 Proyecto Metamorfosis • Seda consciente • Hecho con amor y seda</p>
     <p class="mt-2">Transform yourself through conscious clothing.</p>
   </footer>
 
+  <!-- WebGL Mandala Shader -->
   <script>
-    // Tailwind script already loaded
-    console.log('%c✅ Metamorfosis site upgraded to Boutique style!', 'color:#c19a6b; font-family:monospace');
+    const canvas = document.getElementById('mandala');
+    const gl = canvas.getContext('webgl');
+    
+    if (gl) {
+      const vertexShader = gl.createShader(gl.VERTEX_SHADER);
+      gl.shaderSource(vertexShader, 'attribute vec2 a_position;void main(){gl_Position=vec4(a_position,0,1);}');
+      gl.compileShader(vertexShader);
+      
+      const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+      gl.shaderSource(fragmentShader, `
+        precision mediump float;
+        uniform float u_time;
+        uniform vec2 u_resolution;
+        void main(){
+          vec2 uv = (gl_FragCoord.xy - 0.5 * u_resolution) / min(u_resolution.x, u_resolution.y);
+          float r = length(uv);
+          float a = atan(uv.y, uv.x);
+          float mandala = sin(8.0 * a + u_time * 0.5) * 0.5 + 0.5;
+          float ring = sin(r * 20.0 - u_time) * 0.5 + 0.5;
+          vec3 color = mix(vec3(0.76, 0.60, 0.42), vec3(0.95, 0.85, 0.70), mandala * ring);
+          gl_FragColor = vec4(color, 0.15 + 0.1 * sin(u_time + r * 10.0));
+        }
+      `);
+      gl.compileShader(fragmentShader);
+      
+      const program = gl.createProgram();
+      gl.attachShader(program, vertexShader);
+      gl.attachShader(program, fragmentShader);
+      gl.linkProgram(program);
+      gl.useProgram(program);
+      
+      const positionBuffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+      
+      const positionLoc = gl.getAttribLocation(program, 'a_position');
+      gl.enableVertexAttribArray(positionLoc);
+      gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
+      
+      const timeLoc = gl.getUniformLocation(program, 'u_time');
+      const resLoc = gl.getUniformLocation(program, 'u_resolution');
+      
+      function resize() {
+        canvas.width = canvas.offsetWidth * 2;
+        canvas.height = canvas.offsetHeight * 2;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+      }
+      window.addEventListener('resize', resize);
+      resize();
+      
+      function render(time) {
+        gl.uniform1f(timeLoc, time * 0.001);
+        gl.uniform2f(resLoc, canvas.width, canvas.height);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        requestAnimationFrame(render);
+      }
+      requestAnimationFrame(render);
+    }
   </script>
 </body>
 </html>
