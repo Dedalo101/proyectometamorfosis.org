@@ -19,10 +19,10 @@
   <nav class="bg-white border-b sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <h1 class="text-3xl font-light tracking-widest">METEMORFOSIS</h1>
+        <h1 class="text-3xl font-light tracking-widest">METAMORFOSIS</h1>
       </div>
       <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest">
-        <a href="metemorfosis.html" class="hover:text-[#c19a6b]">Colección</a>
+        <a href="metamorfosis.html" class="hover:text-[#c19a6b]">Colección</a>
         <a href="#story" class="hover:text-[#c19a6b]">Nuestra Historia</a>
         <a href="#valores" class="hover:text-[#c19a6b]">Valores</a>
         <a href="#bespoke" class="hover:text-[#c19a6b]">Bespoke</a>
