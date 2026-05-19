@@ -93,7 +93,7 @@
   <!-- STORY -->
   <section id="story" class="bg-[#e8d5b7] py-20">
     <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-light mb-8">Bienvenidos a Metemorfosis</h2>
+      <h2 class="text-4xl font-light mb-8">Bienvenidos a Metamorfosis</h2>
       <p class="text-lg leading-relaxed">Creamos prendas de seda india conscientemente sourced, cada una es una transformación wearable. Un puente entre antiguas tradiciones textiles y la vida consciente moderna.</p>
       <p class="mt-8 italic">— Seda que honra al gusano, al artesano y a tu esencia.</p>
     </div>
