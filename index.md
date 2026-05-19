@@ -141,7 +141,7 @@
   </section>
 
   <footer class="bg-[#3f2a1e] text-[#e8d5b7] py-12 text-center text-sm">
-    <p>© 2026 Proyecto Metemorfosis • Seda consciente • Hecho con amor y seda</p>
+    <p>© 2026 Proyecto Metamorfosis • Seda consciente • Hecho con amor y seda</p>
     <p class="mt-2">Transform yourself through conscious clothing.</p>
   </footer>
 
