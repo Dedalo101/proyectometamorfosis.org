@@ -22,7 +22,7 @@
         <h1 class="text-3xl font-light tracking-widest">METEMORFOSIS</h1>
       </div>
       <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest">
-        <a href="#shop" class="hover:text-[#c19a6b]">Colección</a>
+        <a href="metemorfosis.html" class="hover:text-[#c19a6b]">Colección</a>
         <a href="#story" class="hover:text-[#c19a6b]">Nuestra Historia</a>
         <a href="#valores" class="hover:text-[#c19a6b]">Valores</a>
         <a href="#bespoke" class="hover:text-[#c19a6b]">Bespoke</a>
@@ -37,7 +37,7 @@
       <p class="uppercase tracking-[3px] text-sm mb-4">Conscious • Indian Silk • Bespoke</p>
       <h1 class="text-6xl md:text-7xl font-light leading-none mb-6">Transforma tu esencia</h1>
       <p class="text-xl md:text-2xl max-w-lg mx-auto mb-10">Seda india consciente. Prendas únicas hechas a medida. Elegancia que honra el alma y la tierra.</p>
-      <a href="#shop" class="inline-block bg-white text-[#3f2a1e] px-10 py-4 rounded-full text-lg font-medium hover:bg-[#e8d5b7]">Explorar la colección</a>
+      <a href="metemorfosis.html" class="inline-block bg-white text-[#3f2a1e] px-10 py-4 rounded-full text-lg font-medium hover:bg-[#e8d5b7]">Explorar la colección</a>
     </div>
   </header>
 
