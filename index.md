@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyecto Metemorfosis • Conscious Silk Bespoke Garments</title>
+  <title>Proyecto Metamorfosis • Conscious Silk Bespoke Garments</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
@@ -19,10 +19,10 @@
   <nav class="bg-white border-b sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <h1 class="text-3xl font-light tracking-widest">METEMORFOSIS</h1>
+        <h1 class="text-3xl font-light tracking-widest">METAMORFOSIS</h1>
       </div>
       <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest">
-        <a href="metemorfosis.html" class="hover:text-[#c19a6b]">Colección</a>
+        <a href="metamorfosis.html" class="hover:text-[#c19a6b]">Colección</a>
         <a href="#story" class="hover:text-[#c19a6b]">Nuestra Historia</a>
         <a href="#valores" class="hover:text-[#c19a6b]">Valores</a>
         <a href="#bespoke" class="hover:text-[#c19a6b]">Bespoke</a>
@@ -37,7 +37,7 @@
       <p class="uppercase tracking-[3px] text-sm mb-4">Conscious • Indian Silk • Bespoke</p>
       <h1 class="text-6xl md:text-7xl font-light leading-none mb-6">Transforma tu esencia</h1>
       <p class="text-xl md:text-2xl max-w-lg mx-auto mb-10">Seda india consciente. Prendas únicas hechas a medida. Elegancia que honra el alma y la tierra.</p>
-      <a href="metemorfosis.html" class="inline-block bg-white text-[#3f2a1e] px-10 py-4 rounded-full text-lg font-medium hover:bg-[#e8d5b7]">Explorar la colección</a>
+      <a href="metamorfosis.html" class="inline-block bg-white text-[#3f2a1e] px-10 py-4 rounded-full text-lg font-medium hover:bg-[#e8d5b7]">Explorar la colección</a>
     </div>
   </header>
 
@@ -93,7 +93,7 @@
   <!-- STORY -->
   <section id="story" class="bg-[#e8d5b7] py-20">
     <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-light mb-8">Bienvenidos a Metemorfosis</h2>
+      <h2 class="text-4xl font-light mb-8">Bienvenidos a Metamorfosis</h2>
       <p class="text-lg leading-relaxed">Creamos prendas de seda india conscientemente sourced, cada una es una transformación wearable. Un puente entre antiguas tradiciones textiles y la vida consciente moderna.</p>
       <p class="mt-8 italic">— Seda que honra al gusano, al artesano y a tu esencia.</p>
     </div>
@@ -141,13 +141,13 @@
   </section>
 
   <footer class="bg-[#3f2a1e] text-[#e8d5b7] py-12 text-center text-sm">
-    <p>© 2026 Proyecto Metemorfosis • Seda consciente • Hecho con amor y seda</p>
+    <p>© 2026 Proyecto Metamorfosis • Seda consciente • Hecho con amor y seda</p>
     <p class="mt-2">Transform yourself through conscious clothing.</p>
   </footer>
 
   <script>
     // Tailwind script already loaded
-    console.log('%c✅ Metemorfosis site upgraded to Boutique style!', 'color:#c19a6b; font-family:monospace');
+    console.log('%c✅ Metamorfosis site upgraded to Boutique style!', 'color:#c19a6b; font-family:monospace');
   </script>
 </body>
 </html>
