@@ -1,5 +1,8 @@
 const canvas = document.getElementById('fractalCanvas');
-const gl = canvas.getContext('webgl');
+const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent);
+const devicePixelRatio = window.devicePixelRatio || 1;
+const glAttributes = { alpha: false, antialias: !isMobileDevice, premultipliedAlpha: false };
+const gl = canvas.getContext('webgl', glAttributes) || canvas.getContext('experimental-webgl', glAttributes);
 
 let width = 0;
 let height = 0;
@@ -7,6 +10,10 @@ let startTime = performance.now();
 let mouseX = 0.5;
 let mouseY = 0.5;
 let mandalaState = 0;
+let qualityScale = 1.0;
+let fpsAccumulator = 0;
+let fpsFrameCount = 0;
+let lastFrameTime = performance.now();
 
 const vertexSource = `
 attribute vec2 a_position;
@@ -91,9 +98,21 @@ void main() {
 }`;
 
 function resizeCanvas() {
-  width = canvas.width = window.innerWidth;
+  const baseWidth = window.innerWidth;
   const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-  height = canvas.height = Math.floor(vh);
+  const baseHeight = Math.floor(vh);
+
+  const maxRenderArea = isMobileDevice ? 900000 : 1800000;
+  const effectivePixelRatio = Math.min(devicePixelRatio, isMobileDevice ? 1.5 : 2) * qualityScale;
+  const estimatedArea = baseWidth * baseHeight * effectivePixelRatio * effectivePixelRatio;
+  const scaleDown = estimatedArea > maxRenderArea ? Math.sqrt(maxRenderArea / estimatedArea) : 1;
+  const renderScale = effectivePixelRatio * scaleDown;
+
+  width = canvas.width = Math.max(1, Math.floor(baseWidth * renderScale));
+  height = canvas.height = Math.max(1, Math.floor(baseHeight * renderScale));
+  canvas.style.width = `${baseWidth}px`;
+  canvas.style.height = `${baseHeight}px`;
+
   if (gl) {
     gl.viewport(0, 0, width, height);
   }
@@ -141,6 +160,27 @@ if (!gl) {
 
   function render() {
     const now = performance.now();
+    const delta = now - lastFrameTime;
+    lastFrameTime = now;
+    fpsAccumulator += delta;
+    fpsFrameCount += 1;
+
+    if (fpsFrameCount >= 40) {
+      const avgFps = 1000 * fpsFrameCount / fpsAccumulator;
+      fpsAccumulator = 0;
+      fpsFrameCount = 0;
+
+      const previousQuality = qualityScale;
+      if (avgFps < 40 && qualityScale > 0.5) {
+        qualityScale = Math.max(0.5, qualityScale - 0.1);
+      } else if (avgFps > 55 && qualityScale < 1.0) {
+        qualityScale = Math.min(1.0, qualityScale + 0.1);
+      }
+      if (qualityScale !== previousQuality) {
+        resizeCanvas();
+      }
+    }
+
     const t = now - startTime;
 
     gl.clear(gl.COLOR_BUFFER_BIT);
@@ -170,6 +210,13 @@ document.addEventListener('mousemove', (event) => {
   mouseY = event.clientY / height;
 });
 
+document.addEventListener('touchstart', (event) => {
+  if (event.touches.length > 0) {
+    mouseX = event.touches[0].clientX / width;
+    mouseY = event.touches[0].clientY / height;
+  }
+});
+
 document.addEventListener('touchmove', (event) => {
   if (event.touches.length > 0) {
     mouseX = event.touches[0].clientX / width;
@@ -178,10 +225,13 @@ document.addEventListener('touchmove', (event) => {
 });
 
 canvas.addEventListener('click', () => {
-  mandalaState = (mandalaState + 1) % 4;
+  if (!isMobileDevice) {
+    mandalaState = (mandalaState + 1) % 4;
+  }
 });
 
-canvas.addEventListener('touchend', () => {
+canvas.addEventListener('touchend', (event) => {
+  event.preventDefault();
   mandalaState = (mandalaState + 1) % 4;
 });
 
